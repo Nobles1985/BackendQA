@@ -8,7 +8,7 @@ import io.restassured.filter.log.LogDetail;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
-import org.hamcrest.Matchers;
+import lombok.Getter;
 import org.junit.jupiter.api.BeforeAll;
 
 import java.io.FileInputStream;
@@ -22,11 +22,12 @@ public abstract class AbstractTest {
 
     static Properties prop = new Properties();
     private static InputStream configFile;
-    private static String apiKey;
-    private static String baseUrl;
-    private static String username;
-    private static String hash;
+    @Getter private static String apiKey;
+    @Getter private static String baseUrl;
+    @Getter private static String username;
+    @Getter private static String hash;
     protected static ResponseSpecification responseSpecification;
+    private static RequestSpecification requestSpecification;
 
     @BeforeAll
     static void setUp() throws IOException{
@@ -47,14 +48,12 @@ public abstract class AbstractTest {
                 .expectContentType(ContentType.JSON)
                 .build();
 
+        requestSpecification = new RequestSpecBuilder()
+                .addQueryParam("apiKey", getApiKey())
+                .log(LogDetail.ALL)
+                .build();
+
+        RestAssured.requestSpecification = requestSpecification;
         RestAssured.responseSpecification = responseSpecification;
     }
-
-    public static String getApiKey() { return  apiKey; }
-
-    public static String getBaseUrl() { return baseUrl; }
-
-    public static String getUsername() { return username; }
-
-    public static String getHash() { return hash; }
 }

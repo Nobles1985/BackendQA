@@ -1,27 +1,10 @@
 package lesson4;
 
-import io.restassured.RestAssured;
-import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.filter.log.LogDetail;
-import io.restassured.specification.RequestSpecification;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
 
 public class SpoonacularRecipeSearchTest extends AbstractTest{
-
-    private static RequestSpecification requestSpecification;
-
-    @BeforeAll
-    static void initTest() {
-        requestSpecification = new RequestSpecBuilder()
-                .addQueryParam("apiKey", getApiKey())
-                .log(LogDetail.ALL)
-                .build();
-
-        RestAssured.requestSpecification = requestSpecification;
-    }
 
     @Test
     void saladRecipeSearchTest(){

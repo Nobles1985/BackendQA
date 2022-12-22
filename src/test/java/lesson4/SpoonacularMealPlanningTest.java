@@ -2,7 +2,6 @@ package lesson4;
 
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.filter.log.LogDetail;
 import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -16,10 +15,8 @@ public class SpoonacularMealPlanningTest extends AbstractTest{
     @BeforeAll
     static void initTest() {
         requestSpecification = new RequestSpecBuilder()
-                .addQueryParam("apiKey", getApiKey())
                 .addQueryParam("hash", getHash())
                 .addPathParam("username", getUsername())
-                .log(LogDetail.ALL)
                 .build();
 
         RestAssured.requestSpecification = requestSpecification;
