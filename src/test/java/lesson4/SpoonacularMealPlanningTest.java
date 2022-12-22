@@ -3,10 +3,15 @@ package lesson4;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.specification.RequestSpecification;
+import org.example.lesson4.dto.AddResponse;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
+
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class SpoonacularMealPlanningTest extends AbstractTest{
 
@@ -31,19 +36,19 @@ public class SpoonacularMealPlanningTest extends AbstractTest{
                 .post(getBaseUrl() + "mealplanner/{username}/shopping-list/{start-date}/{end-date}")
                 .then();
 
-        String id = given()
-                .body("{\n" +
-                        "   \"item\": \"1 package baking powder\",\n" +
-                        "   \"aisle\": \"Baking\",\n" +
-                        "   \"parse\": true\n" +
-                        "}")
+        File request = new File("src/main/resources/request.json");
+
+        AddResponse response = given()
+                .body(request)
                 .when()
                 .post(getBaseUrl() + "mealplanner/{username}/shopping-list/items")
                 .then()
                 .extract()
-                .jsonPath()
-                .get("id")
-                .toString();
+                .response()
+                .body().as(AddResponse.class);
+        assertThat(response.getName(), containsString("baking powder"));
+        assertThat(response.getAisle(), containsString("Baking"));
+        String id = response.getId().toString();
 
         given()
                 .when()

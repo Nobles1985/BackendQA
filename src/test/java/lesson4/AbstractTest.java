@@ -27,7 +27,7 @@ public abstract class AbstractTest {
     @Getter private static String username;
     @Getter private static String hash;
     protected static ResponseSpecification responseSpecification;
-    private static RequestSpecification requestSpecification;
+    protected static RequestSpecification requestSpecification;
 
     @BeforeAll
     static void setUp() throws IOException{

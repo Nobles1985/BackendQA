@@ -29,8 +29,7 @@ public class SpoonacularClassifyCuisineTest extends AbstractTest{
                 .formParam("ingredientList", "potato\nfish")
                 .when()
                 .post(getBaseUrl() + "recipes/cuisine")
-                .then()
-                .assertThat();
+                .then();
     }
 
     @Test
@@ -40,8 +39,7 @@ public class SpoonacularClassifyCuisineTest extends AbstractTest{
                 .formParam("ingredientList", "apple")
                 .when()
                 .post(getBaseUrl() + "recipes/cuisine")
-                .then()
-                .assertThat();
+                .then();
     }
 
     @Test
@@ -51,8 +49,7 @@ public class SpoonacularClassifyCuisineTest extends AbstractTest{
                 .formParam("ingredientList", "egg\nblack pepper\nmayonnaise")
                 .when()
                 .post(getBaseUrl() + "recipes/cuisine")
-                .then()
-                .assertThat();
+                .then();
     }
 
     @Test
@@ -62,8 +59,7 @@ public class SpoonacularClassifyCuisineTest extends AbstractTest{
                 .formParam("ingredientList", "apple\npita breads\nwatercress")
                 .when()
                 .post(getBaseUrl() + "recipes/cuisine")
-                .then()
-                .assertThat();
+                .then();
     }
 
     @Test
@@ -73,8 +69,7 @@ public class SpoonacularClassifyCuisineTest extends AbstractTest{
                 .formParam("ingredientList", "mozzarella cheese\nbacon\npepperoni")
                 .when()
                 .post(getBaseUrl() + "recipes/cuisine")
-                .then()
-                .assertThat();
+                .then();
     }
 
     @Test
@@ -84,8 +79,7 @@ public class SpoonacularClassifyCuisineTest extends AbstractTest{
                 .formParam("ingredientList", "bacon\nmilk\nchopped onion")
                 .when()
                 .post(getBaseUrl() + "recipes/cuisine")
-                .then()
-                .assertThat();
+                .then();
     }
 
     @Test
@@ -95,8 +89,7 @@ public class SpoonacularClassifyCuisineTest extends AbstractTest{
                 .formParam("ingredientList", "coconut oil\ncloves garlic\nyellow onion")
                 .when()
                 .post(getBaseUrl() + "recipes/cuisine")
-                .then()
-                .assertThat();
+                .then();
     }
 
     @Test
@@ -106,8 +99,7 @@ public class SpoonacularClassifyCuisineTest extends AbstractTest{
                 .formParam("ingredientList", "avocados\nvanilla\nginger")
                 .when()
                 .post(getBaseUrl() + "recipes/cuisine")
-                .then()
-                .assertThat();
+                .then();
     }
 
     @Test
@@ -117,8 +109,7 @@ public class SpoonacularClassifyCuisineTest extends AbstractTest{
                 .formParam("ingredientList", "muesli\negg")
                 .when()
                 .post(getBaseUrl() + "recipes/cuisine")
-                .then()
-                .assertThat();
+                .then();
     }
 
     @Test
@@ -128,7 +119,6 @@ public class SpoonacularClassifyCuisineTest extends AbstractTest{
                 .formParam("ingredientList", "bacon\nmozzarella cheese\ntomato")
                 .when()
                 .post(getBaseUrl() + "recipes/cuisine")
-                .then()
-                .assertThat();
+                .then();
     }
 }

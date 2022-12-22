@@ -19,8 +19,7 @@ public class SpoonacularRecipeSearchTest extends AbstractTest{
                 .queryParam("number", 10)
                 .when()
                 .get(getBaseUrl() + "recipes/complexSearch")
-                .then()
-                .assertThat();
+                .then();
     }
 
     @Test
@@ -35,8 +34,7 @@ public class SpoonacularRecipeSearchTest extends AbstractTest{
                 .queryParam("number", 5)
                 .when()
                 .get(getBaseUrl() + "recipes/complexSearch")
-                .then()
-                .assertThat();
+                .then();
     }
 
     @Test
@@ -52,8 +50,7 @@ public class SpoonacularRecipeSearchTest extends AbstractTest{
                 .queryParam("number", 5)
                 .when()
                 .get(getBaseUrl() + "recipes/complexSearch")
-                .then()
-                .assertThat();
+                .then();
     }
 
     @Test
@@ -65,8 +62,7 @@ public class SpoonacularRecipeSearchTest extends AbstractTest{
                 .queryParam("number", 7)
                 .when()
                 .get(getBaseUrl() + "recipes/complexSearch")
-                .then()
-                .assertThat();
+                .then();
     }
 
     @Test
@@ -77,8 +73,7 @@ public class SpoonacularRecipeSearchTest extends AbstractTest{
                 .queryParam("number", 5)
                 .when()
                 .get(getBaseUrl() + "recipes/complexSearch")
-                .then()
-                .assertThat();
+                .then();
     }
 
     @Test
@@ -91,8 +86,7 @@ public class SpoonacularRecipeSearchTest extends AbstractTest{
                 .queryParam("number", 7)
                 .when()
                 .get(getBaseUrl() + "recipes/complexSearch")
-                .then()
-                .assertThat();
+                .then();
     }
 
     @Test
@@ -105,8 +99,7 @@ public class SpoonacularRecipeSearchTest extends AbstractTest{
                 .queryParam("sort", "popularity")
                 .when()
                 .get(getBaseUrl() + "recipes/complexSearch")
-                .then()
-                .assertThat();
+                .then();
     }
 
     @Test
@@ -117,8 +110,7 @@ public class SpoonacularRecipeSearchTest extends AbstractTest{
                 .queryParam("number", 10)
                 .when()
                 .get(getBaseUrl() + "recipes/complexSearch")
-                .then()
-                .assertThat();
+                .then();
     }
 
     @Test
@@ -131,8 +123,7 @@ public class SpoonacularRecipeSearchTest extends AbstractTest{
                 .queryParam("number", 10)
                 .when()
                 .get(getBaseUrl() + "recipes/complexSearch")
-                .then()
-                .assertThat();
+                .then();
     }
 
     @Test
@@ -143,8 +134,7 @@ public class SpoonacularRecipeSearchTest extends AbstractTest{
                 .queryParam("number", 10)
                 .when()
                 .get(getBaseUrl() + "recipes/complexSearch")
-                .then()
-                .assertThat();
+                .then();
     }
 
     @Test
@@ -155,8 +145,7 @@ public class SpoonacularRecipeSearchTest extends AbstractTest{
                 .queryParam("number", 10)
                 .when()
                 .get(getBaseUrl() + "recipes/complexSearch")
-                .then()
-                .assertThat();
+                .then();
     }
 
     @Test
@@ -168,8 +157,7 @@ public class SpoonacularRecipeSearchTest extends AbstractTest{
                 .queryParam("number", 10)
                 .when()
                 .get(getBaseUrl() + "recipes/complexSearch")
-                .then()
-                .assertThat();
+                .then();
     }
 
     @Test
@@ -182,8 +170,7 @@ public class SpoonacularRecipeSearchTest extends AbstractTest{
                 .queryParam("number", 10)
                 .when()
                 .get(getBaseUrl() + "recipes/complexSearch")
-                .then()
-                .assertThat();
+                .then();
     }
 
     @Test
@@ -194,8 +181,7 @@ public class SpoonacularRecipeSearchTest extends AbstractTest{
                 .queryParam("number", 10)
                 .when()
                 .get(getBaseUrl() + "recipes/complexSearch")
-                .then()
-                .assertThat();
+                .then();
     }
 
     @Test
@@ -206,8 +192,7 @@ public class SpoonacularRecipeSearchTest extends AbstractTest{
                 .queryParam("sort", "popularity")
                 .when()
                 .get(getBaseUrl() + "recipes/complexSearch")
-                .then()
-                .assertThat();
+                .then();
     }
 
     @Test
@@ -218,8 +203,7 @@ public class SpoonacularRecipeSearchTest extends AbstractTest{
                 .queryParam("type", "soup")
                 .when()
                 .get(getBaseUrl() + "recipes/complexSearch")
-                .then()
-                .assertThat();
+                .then();
     }
 
     @Test
@@ -230,8 +214,7 @@ public class SpoonacularRecipeSearchTest extends AbstractTest{
                 .queryParam("type", "dessert")
                 .when()
                 .get(getBaseUrl() + "recipes/complexSearch")
-                .then()
-                .assertThat();
+                .then();
     }
 
     @Test
@@ -243,8 +226,7 @@ public class SpoonacularRecipeSearchTest extends AbstractTest{
                 .queryParam("number", 7)
                 .when()
                 .get(getBaseUrl() + "recipes/complexSearch")
-                .then()
-                .assertThat();
+                .then();
     }
 
     @Test
@@ -256,8 +238,7 @@ public class SpoonacularRecipeSearchTest extends AbstractTest{
                 .queryParam("number", 5)
                 .when()
                 .get(getBaseUrl() + "recipes/complexSearch")
-                .then()
-                .assertThat();
+                .then();
     }
 
     @Test
@@ -270,7 +251,6 @@ public class SpoonacularRecipeSearchTest extends AbstractTest{
                 .queryParam("number", 5)
                 .when()
                 .get(getBaseUrl() + "recipes/complexSearch")
-                .then()
-                .assertThat();
+                .then();
     }
 }
