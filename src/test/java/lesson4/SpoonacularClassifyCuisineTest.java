@@ -1,29 +1,14 @@
 package lesson4;
 
-import io.restassured.RestAssured;
-import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.specification.RequestSpecification;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
 
 public class SpoonacularClassifyCuisineTest extends AbstractTest{
 
-    private static RequestSpecification requestSpecification;
-
-    @BeforeAll
-    static void initTest() {
-        requestSpecification = new RequestSpecBuilder()
-                .addQueryParam("language", "en")
-                .setContentType("application/x-www-form-urlencoded")
-                .build();
-
-        RestAssured.requestSpecification = requestSpecification;
-    }
-
     @Test
     void classifyClamsWithSpanishSausage(){
+        Specifications.initSpecification(Specifications.requestSpecCuisine());
         given()
                 .formParam("title", "Clams With Spanish Sausage")
                 .formParam("ingredientList", "potato\nfish")
@@ -34,6 +19,7 @@ public class SpoonacularClassifyCuisineTest extends AbstractTest{
 
     @Test
     void classifyApplePieTest(){
+        Specifications.initSpecification(Specifications.requestSpecCuisine());
         given()
                 .formParam("title", "Apple Pie, Vermont Style")
                 .formParam("ingredientList", "apple")
@@ -44,6 +30,7 @@ public class SpoonacularClassifyCuisineTest extends AbstractTest{
 
     @Test
     void classifyEggSaladTest(){
+        Specifications.initSpecification(Specifications.requestSpecCuisine());
         given()
                 .formParam("title", "Egg Salad Sandwiches With Tarragon")
                 .formParam("ingredientList", "egg\nblack pepper\nmayonnaise")
@@ -54,6 +41,7 @@ public class SpoonacularClassifyCuisineTest extends AbstractTest{
 
     @Test
     void classifyCrabSaladTest(){
+        Specifications.initSpecification(Specifications.requestSpecCuisine());
         given()
                 .formParam("title", "Crab Salad Stuffed Pita Pockets")
                 .formParam("ingredientList", "apple\npita breads\nwatercress")
@@ -64,6 +52,7 @@ public class SpoonacularClassifyCuisineTest extends AbstractTest{
 
     @Test
     void classifySausageAndPepperoniStromboliTest(){
+        Specifications.initSpecification(Specifications.requestSpecCuisine());
         given()
                 .formParam("title", "Sausage & Pepperoni Stromboli")
                 .formParam("ingredientList", "mozzarella cheese\nbacon\npepperoni")
@@ -74,6 +63,7 @@ public class SpoonacularClassifyCuisineTest extends AbstractTest{
 
     @Test
     void classifyPotatoSoupTest(){
+        Specifications.initSpecification(Specifications.requestSpecCuisine());
         given()
                 .formParam("title", "Loaded Baked Potato Soup")
                 .formParam("ingredientList", "bacon\nmilk\nchopped onion")
@@ -84,6 +74,7 @@ public class SpoonacularClassifyCuisineTest extends AbstractTest{
 
     @Test
     void classifyRamenTest(){
+        Specifications.initSpecification(Specifications.requestSpecCuisine());
         given()
                 .formParam("title", "Homemade Creamy Ramen Soup")
                 .formParam("ingredientList", "coconut oil\ncloves garlic\nyellow onion")
@@ -94,6 +85,7 @@ public class SpoonacularClassifyCuisineTest extends AbstractTest{
 
     @Test
     void classifyVeganDirtyChaiPuddingTest(){
+        Specifications.initSpecification(Specifications.requestSpecCuisine());
         given()
                 .formParam("title", "Vegan Dirty Chai Pudding")
                 .formParam("ingredientList", "avocados\nvanilla\nginger")
@@ -104,6 +96,7 @@ public class SpoonacularClassifyCuisineTest extends AbstractTest{
 
     @Test
     void classifyMuesliCookiesTest(){
+        Specifications.initSpecification(Specifications.requestSpecCuisine());
         given()
                 .formParam("title", "Muesli Cookies")
                 .formParam("ingredientList", "muesli\negg")
@@ -114,6 +107,7 @@ public class SpoonacularClassifyCuisineTest extends AbstractTest{
 
     @Test
     void classifyBLTPizzaTest(){
+        Specifications.initSpecification(Specifications.requestSpecCuisine());
         given()
                 .formParam("title", "BLT Pizza")
                 .formParam("ingredientList", "bacon\nmozzarella cheese\ntomato")

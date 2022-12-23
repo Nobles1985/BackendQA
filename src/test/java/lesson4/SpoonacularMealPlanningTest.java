@@ -1,34 +1,21 @@
 package lesson4;
 
-import io.restassured.RestAssured;
-import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.specification.RequestSpecification;
+import org.example.lesson4.dto.AddRequest;
 import org.example.lesson4.dto.AddResponse;
-import org.junit.jupiter.api.BeforeAll;
+import org.example.lesson4.dto.DeleteResponse;
+import org.example.lesson4.dto.GetResponse;
 import org.junit.jupiter.api.Test;
-
-import java.io.File;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class SpoonacularMealPlanningTest extends AbstractTest{
 
-    private static RequestSpecification requestSpecification;
-
-    @BeforeAll
-    static void initTest() {
-        requestSpecification = new RequestSpecBuilder()
-                .addQueryParam("hash", getHash())
-                .addPathParam("username", getUsername())
-                .build();
-
-        RestAssured.requestSpecification = requestSpecification;
-    }
-
     @Test
     void mealPlanShoppingListTest(){
+        Specifications.initSpecification(Specifications.requestSpecMeal());
         given()
                 .pathParam("start-date", "2022-12-21")
                 .pathParam("end-date", "2022-12-30")
@@ -36,29 +23,38 @@ public class SpoonacularMealPlanningTest extends AbstractTest{
                 .post(getBaseUrl() + "mealplanner/{username}/shopping-list/{start-date}/{end-date}")
                 .then();
 
-        File request = new File("src/main/resources/request.json");
-
-        AddResponse response = given()
-                .body(request)
+        AddRequest req = new AddRequest("1 package baking powder", "Baking", true);
+        AddResponse addResponse = given()
+                .body(req)
                 .when()
                 .post(getBaseUrl() + "mealplanner/{username}/shopping-list/items")
                 .then()
                 .extract()
                 .response()
                 .body().as(AddResponse.class);
-        assertThat(response.getName(), containsString("baking powder"));
-        assertThat(response.getAisle(), containsString("Baking"));
-        String id = response.getId().toString();
+        assertThat(addResponse.getName(), containsString("baking powder"));
+        assertThat(addResponse.getAisle(), containsString("Baking"));
+        String id = addResponse.getId().toString();
 
-        given()
+        GetResponse getResponse = given()
                 .when()
                 .get(getBaseUrl() + "mealplanner/{username}/shopping-list")
-                .then();
+                .then()
+                .extract()
+                .response()
+                .body().as(GetResponse.class);
+        assertThat(getResponse.getCost(), is(0.71));
+        assertThat(getResponse.getAisles().get(0).getItems().get(0).getId().toString(), containsString(id));
+        assertThat(getResponse.getAisles().get(0).getAisle(), containsString("Baking"));
 
-        given()
+        DeleteResponse deleteResponse = given()
                 .pathParam("id", id)
                 .when()
                 .delete(getBaseUrl() + "mealplanner/{username}/shopping-list/items/{id}")
-                .then();
+                .then()
+                .extract()
+                .response()
+                .body().as(DeleteResponse.class);
+        assertThat(deleteResponse.getStatus(), containsString("success"));
     }
 }

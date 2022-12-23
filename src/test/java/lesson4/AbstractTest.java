@@ -1,6 +1,5 @@
 package lesson4;
 
-import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
@@ -32,7 +31,6 @@ public abstract class AbstractTest {
     @BeforeAll
     static void setUp() throws IOException{
         RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
-        RestAssured.filters(new AllureRestAssured());
         configFile = new FileInputStream("src/main/resources/my.properties");
         prop.load(configFile);
 
@@ -42,6 +40,7 @@ public abstract class AbstractTest {
         hash = prop.getProperty("hash");
 
         responseSpecification = new ResponseSpecBuilder()
+                .log(LogDetail.BODY)
                 .expectStatusCode(200)
                 .expectStatusLine("HTTP/1.1 200 OK")
                 .expectStatusLine(containsString("OK"))

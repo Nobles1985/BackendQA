@@ -28,7 +28,7 @@ public class GetResponse {
             "aisle",
             "items"
     })
-    @Data private static class Aisle {
+    @Data public static class Aisle {
         @JsonProperty("aisle")
         private String aisle;
         @JsonProperty("items")
@@ -46,7 +46,7 @@ public class GetResponse {
             "cost",
             "ingredientId"
     })
-    @Data private static class Item {
+    @Data public static class Item {
         @JsonProperty("id")
         private Integer id;
         @JsonProperty("name")
@@ -72,7 +72,7 @@ public class GetResponse {
             "metric",
             "us"
     })
-    @Data private static class Measures {
+    @Data public static class Measures {
         @JsonProperty("original")
         private Original original;
         @JsonProperty("metric")
@@ -85,7 +85,7 @@ public class GetResponse {
             "amount",
             "unit"
     })
-    @Data private static class Metric {
+    @Data public static class Metric {
         @JsonProperty("amount")
         private Double amount;
         @JsonProperty("unit")
@@ -96,7 +96,7 @@ public class GetResponse {
             "amount",
             "unit"
     })
-    @Data private static class Original {
+    @Data public static class Original {
         @JsonProperty("amount")
         private Double amount;
         @JsonProperty("unit")
@@ -107,7 +107,7 @@ public class GetResponse {
             "amount",
             "unit"
     })
-    @Data private static class Us {
+    @Data public static class Us {
         @JsonProperty("amount")
         private Double amount;
         @JsonProperty("unit")
