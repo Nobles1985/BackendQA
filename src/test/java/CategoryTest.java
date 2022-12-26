@@ -10,7 +10,7 @@ import retrofit2.Response;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class GetCategoryTest {
+public class CategoryTest {
 
     static CategoryController categoryController;
     @BeforeAll

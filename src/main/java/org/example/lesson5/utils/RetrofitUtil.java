@@ -2,6 +2,7 @@ package org.example.lesson5.utils;
 
 import lombok.SneakyThrows;
 import lombok.experimental.UtilityClass;
+import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 
@@ -29,10 +30,15 @@ public class RetrofitUtil {
         return prop.getProperty("url");
     }
 
+    LoggingInterceptor logging = new LoggingInterceptor();
+    OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
+
     public Retrofit getRetrofit() {
+        httpClient.addInterceptor(logging);
         return new Retrofit.Builder()
                 .baseUrl(getBaseURL())
                 .addConverterFactory(JacksonConverterFactory.create())
+                .client(httpClient.build())
                 .build();
     }
 }
